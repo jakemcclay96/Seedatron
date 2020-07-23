@@ -1,4 +1,4 @@
-const { createConnection, closeConnection, query } = require('./db');
+const { createConnection, closeConnection, query, checkTableColumns } = require('./db');
 
 const runApplication = async () => {
   await createConnection();
@@ -8,7 +8,7 @@ const userSeedEntity = {
   name: 'users',
   fields: [
     { name: 'id', type: 'number', pk: true },
-    { name: 'firstName', type: 'string' },
+    { name: 'name', type: 'string' },
   ],
 };
 
@@ -46,11 +46,15 @@ const insert = async (entity, values) => {
   console.log({ count: rowCount, rows  });
 };
 
+
+
 /*** MAIN ***/
 (async () => {
   try {
     await runApplication();
-    await insert(userSeedEntity, seedData);
+    // await insert(userSeedEntity, seedData);
+    const { rows } = await checkTableColumns('users');
+    console.log({ entityMetaData: rows });
     await closeConnection();
   } catch (err) {
     console.warn(`ERROR: ${err.message}`);
