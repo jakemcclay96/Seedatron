@@ -1,0 +1,23 @@
+{
+  "name": "seedatron",
+  "version": "1.0.0",
+  "description": "Data seeding package with utility and helper functions for seeding initial & test scenarios in your postgres database",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakemcclay96/Seedatron.git"
+  },
+  "author": "Jake McClay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakemcclay96/Seedatron/issues"
+  },
+  "homepage": "https://github.com/jakemcclay96/Seedatron#readme",
+  "dependencies": {
+    "pg": "^8.3.0"
+  }
+}
